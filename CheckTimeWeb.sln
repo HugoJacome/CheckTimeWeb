@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckTimeWeb", "CheckTimeWeb\CheckTimeWeb.csproj", "{F2C30FD3-2066-46F5-B777-FCC12A44D7CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckTime.DAL", "CheckTime.DAL\CheckTime.DAL.csproj", "{5F38DEF2-F44B-4F30-9022-FF452616A843}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckTime.ENTITY", "CheckTime.ENTITY\CheckTime.ENTITY.csproj", "{B17FB345-4797-4ADF-8468-6346856D6C6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckTime.BLL", "CheckTime.BLL\CheckTime.BLL.csproj", "{4389CEED-2051-41EB-A7E5-2509510A77F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2C30FD3-2066-46F5-B777-FCC12A44D7CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2C30FD3-2066-46F5-B777-FCC12A44D7CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2C30FD3-2066-46F5-B777-FCC12A44D7CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2C30FD3-2066-46F5-B777-FCC12A44D7CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F38DEF2-F44B-4F30-9022-FF452616A843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F38DEF2-F44B-4F30-9022-FF452616A843}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F38DEF2-F44B-4F30-9022-FF452616A843}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F38DEF2-F44B-4F30-9022-FF452616A843}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B17FB345-4797-4ADF-8468-6346856D6C6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B17FB345-4797-4ADF-8468-6346856D6C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B17FB345-4797-4ADF-8468-6346856D6C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B17FB345-4797-4ADF-8468-6346856D6C6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4389CEED-2051-41EB-A7E5-2509510A77F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4389CEED-2051-41EB-A7E5-2509510A77F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4389CEED-2051-41EB-A7E5-2509510A77F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4389CEED-2051-41EB-A7E5-2509510A77F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

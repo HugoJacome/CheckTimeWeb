@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ffddbd939d174bf5ab3939ab5fe1b209" Name="Diagram1">
+        <EntityTypeShape EntityType="CheckTimeModel.CATALOGO_CABECERA" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckTimeModel.CATALOGO_DETALLE" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckTimeModel.CATALOGO_EMPRESA" Width="1.5" PointX="6" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckTimeModel.CONFIGURACION" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckTimeModel.EMPLEADO" Width="1.5" PointX="6" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckTimeModel.EMPRESA" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckTimeModel.MENU" Width="1.5" PointX="0.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckTimeModel.PARAMETRO" Width="1.5" PointX="3" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckTimeModel.PERFIL" Width="1.5" PointX="3" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckTimeModel.PERFIL_TAREA" Width="1.5" PointX="5.25" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckTimeModel.PERSONA" Width="1.5" PointX="3.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckTimeModel.TAREA" Width="1.5" PointX="3" PointY="28.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckTimeModel.USUARIO" Width="1.5" PointX="6" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckTimeModel.USUARIO_PERFIL" Width="1.5" PointX="8.25" PointY="23.625" IsExpanded="true" />
+        <AssociationConnector Association="CheckTimeModel.FK_CATALOGO_DETALLE_CATALOGO_CABECERA" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckTimeModel.FK_CATALOGO_EMPRESA_CATALOGO_CABECERA" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckTimeModel.FK_CATALOGO_EMPRESA_EMPRESA" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckTimeModel.FK_CONFIGURACION_EMPRESA" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckTimeModel.FK_EMPLEADO_EMPRESA" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckTimeModel.FK_EMPLEADO_PERSONA" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckTimeModel.FK_PARAMETRO_EMPRESA" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckTimeModel.FK_PERFIL_EMPRESA" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckTimeModel.FK_TAREA_MENU" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckTimeModel.FK_PERFIL_TAREA_PERFIL" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckTimeModel.FK_USUARIO_PERFIL_PERFIL" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckTimeModel.FK_PERFIL_TAREA_TAREA" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckTimeModel.FK_USUARIO_PERSONA" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckTimeModel.FK_USUARIO_PERFIL_USUARIO" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CheckTimeModel.EMPLEADO_FAMILIAR" Width="1.5" PointX="8.25" PointY="7.75" />
+        <AssociationConnector Association="CheckTimeModel.FK_EMPLEADO_FAMILIAR_EMPLEADO" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

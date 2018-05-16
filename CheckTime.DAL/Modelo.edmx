@@ -1,0 +1,1281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CheckTimeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CATALOGO_CABECERA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Especificacion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Estado" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Fc" Type="datetime" Nullable="false" />
+          <Property Name="Uc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fm" Type="datetime" Nullable="false" />
+          <Property Name="Um" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CATALOGO_DETALLE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_catalogo_cabecera" Type="int" Nullable="false" />
+          <Property Name="Especificacion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id_padre" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Fc" Type="datetime" Nullable="false" />
+          <Property Name="Uc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fm" Type="datetime" Nullable="false" />
+          <Property Name="Um" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CATALOGO_EMPRESA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_catalogo_cabecera" Type="int" Nullable="false" />
+          <Property Name="Id_empresa" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Fc" Type="datetime" Nullable="false" />
+          <Property Name="Uc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fm" Type="datetime" Nullable="false" />
+          <Property Name="Um" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CONFIGURACION">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_empresa" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Especificacione" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Valor" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Estado" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Categoria" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fc" Type="datetime" Nullable="false" />
+          <Property Name="Uc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fm" Type="datetime" Nullable="false" />
+          <Property Name="Um" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPLEADO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_empresa" Type="int" Nullable="false" />
+          <Property Name="Id_persona" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fc" Type="datetime" Nullable="false" />
+          <Property Name="Uc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fm" Type="datetime" Nullable="false" />
+          <Property Name="Um" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPLEADO_FAMILIAR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_empleado" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Parentesco" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Estado" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Fc" Type="datetime" Nullable="false" />
+          <Property Name="Uc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fm" Type="datetime" Nullable="false" />
+          <Property Name="Um" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPRESA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Razon_social" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ruc" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefono_1" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Telefono_2" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Representante_legal" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cedula_representante_legal" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Cargo_representante_legal" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id_Ciudad" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Fc" Type="datetime" Nullable="false" />
+          <Property Name="Uc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fm" Type="datetime" Nullable="false" />
+          <Property Name="Um" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MENU">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Especificacion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Estado" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Fc" Type="datetime" Nullable="false" />
+          <Property Name="Uc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fm" Type="datetime" Nullable="false" />
+          <Property Name="Um" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PARAMETRO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_empresa" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Especificacione" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Valor" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Estado" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Categoria" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fc" Type="datetime" Nullable="false" />
+          <Property Name="Uc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fm" Type="datetime" Nullable="false" />
+          <Property Name="Um" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERFIL">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_empresa" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Especificacion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Estado" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Fc" Type="datetime" Nullable="false" />
+          <Property Name="Uc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fm" Type="datetime" Nullable="false" />
+          <Property Name="Um" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERFIL_TAREA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_tarea" Type="int" Nullable="false" />
+          <Property Name="Id_perfil" Type="int" Nullable="false" />
+          <Property Name="Fc" Type="datetime" Nullable="false" />
+          <Property Name="Uc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fm" Type="datetime" Nullable="false" />
+          <Property Name="Um" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERSONA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nombre_1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombre_2" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido_1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido_2" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tipo_documento" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Numero_documento" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Fecha_nacimiento" Type="datetime" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id_ciudad" Type="int" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Estado" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Fc" Type="datetime" Nullable="false" />
+          <Property Name="Uc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fm" Type="datetime" Nullable="false" />
+          <Property Name="Um" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TAREA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Especificacion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id_menu" Type="int" Nullable="false" />
+          <Property Name="Url" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Estado" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Fc" Type="datetime" Nullable="false" />
+          <Property Name="Uc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fm" Type="datetime" Nullable="false" />
+          <Property Name="Um" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id_persona" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Intentos_login_error" Type="int" Nullable="false" />
+          <Property Name="Fc" Type="datetime" Nullable="false" />
+          <Property Name="Uc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fm" Type="datetime" Nullable="false" />
+          <Property Name="Um" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIO_PERFIL">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_usuario" Type="int" Nullable="false" />
+          <Property Name="Id_perfil" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Fc" Type="datetime" Nullable="false" />
+          <Property Name="Uc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fm" Type="datetime" Nullable="false" />
+          <Property Name="Um" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CATALOGO_DETALLE_CATALOGO_CABECERA">
+          <End Role="CATALOGO_CABECERA" Type="Self.CATALOGO_CABECERA" Multiplicity="1" />
+          <End Role="CATALOGO_DETALLE" Type="Self.CATALOGO_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATALOGO_CABECERA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CATALOGO_DETALLE">
+              <PropertyRef Name="Id_catalogo_cabecera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOGO_EMPRESA_CATALOGO_CABECERA">
+          <End Role="CATALOGO_CABECERA" Type="Self.CATALOGO_CABECERA" Multiplicity="1" />
+          <End Role="CATALOGO_EMPRESA" Type="Self.CATALOGO_EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATALOGO_CABECERA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CATALOGO_EMPRESA">
+              <PropertyRef Name="Id_catalogo_cabecera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOGO_EMPRESA_EMPRESA">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+          <End Role="CATALOGO_EMPRESA" Type="Self.CATALOGO_EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CATALOGO_EMPRESA">
+              <PropertyRef Name="Id_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONFIGURACION_EMPRESA">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+          <End Role="CONFIGURACION" Type="Self.CONFIGURACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CONFIGURACION">
+              <PropertyRef Name="Id_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLEADO_EMPRESA">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="Id_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLEADO_FAMILIAR_EMPLEADO">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+          <End Role="EMPLEADO_FAMILIAR" Type="Self.EMPLEADO_FAMILIAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EMPLEADO_FAMILIAR">
+              <PropertyRef Name="Id_empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLEADO_PERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="Id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PARAMETRO_EMPRESA">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+          <End Role="PARAMETRO" Type="Self.PARAMETRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PARAMETRO">
+              <PropertyRef Name="Id_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERFIL_EMPRESA">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+          <End Role="PERFIL" Type="Self.PERFIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PERFIL">
+              <PropertyRef Name="Id_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERFIL_TAREA_PERFIL">
+          <End Role="PERFIL" Type="Self.PERFIL" Multiplicity="1" />
+          <End Role="PERFIL_TAREA" Type="Self.PERFIL_TAREA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERFIL">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PERFIL_TAREA">
+              <PropertyRef Name="Id_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERFIL_TAREA_TAREA">
+          <End Role="TAREA" Type="Self.TAREA" Multiplicity="1" />
+          <End Role="PERFIL_TAREA" Type="Self.PERFIL_TAREA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAREA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PERFIL_TAREA">
+              <PropertyRef Name="Id_tarea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TAREA_MENU">
+          <End Role="MENU" Type="Self.MENU" Multiplicity="1" />
+          <End Role="TAREA" Type="Self.TAREA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MENU">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TAREA">
+              <PropertyRef Name="Id_menu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_PERFIL_PERFIL">
+          <End Role="PERFIL" Type="Self.PERFIL" Multiplicity="1" />
+          <End Role="USUARIO_PERFIL" Type="Self.USUARIO_PERFIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERFIL">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="USUARIO_PERFIL">
+              <PropertyRef Name="Id_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_PERFIL_USUARIO">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="USUARIO_PERFIL" Type="Self.USUARIO_PERFIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="USUARIO_PERFIL">
+              <PropertyRef Name="Id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_PERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="Id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CheckTimeModelStoreContainer">
+          <EntitySet Name="CATALOGO_CABECERA" EntityType="Self.CATALOGO_CABECERA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CATALOGO_DETALLE" EntityType="Self.CATALOGO_DETALLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CATALOGO_EMPRESA" EntityType="Self.CATALOGO_EMPRESA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONFIGURACION" EntityType="Self.CONFIGURACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLEADO_FAMILIAR" EntityType="Self.EMPLEADO_FAMILIAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPRESA" EntityType="Self.EMPRESA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MENU" EntityType="Self.MENU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PARAMETRO" EntityType="Self.PARAMETRO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERFIL" EntityType="Self.PERFIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERFIL_TAREA" EntityType="Self.PERFIL_TAREA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERSONA" EntityType="Self.PERSONA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAREA" EntityType="Self.TAREA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO_PERFIL" EntityType="Self.USUARIO_PERFIL" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CATALOGO_DETALLE_CATALOGO_CABECERA" Association="Self.FK_CATALOGO_DETALLE_CATALOGO_CABECERA">
+            <End Role="CATALOGO_CABECERA" EntitySet="CATALOGO_CABECERA" />
+            <End Role="CATALOGO_DETALLE" EntitySet="CATALOGO_DETALLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOGO_EMPRESA_CATALOGO_CABECERA" Association="Self.FK_CATALOGO_EMPRESA_CATALOGO_CABECERA">
+            <End Role="CATALOGO_CABECERA" EntitySet="CATALOGO_CABECERA" />
+            <End Role="CATALOGO_EMPRESA" EntitySet="CATALOGO_EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOGO_EMPRESA_EMPRESA" Association="Self.FK_CATALOGO_EMPRESA_EMPRESA">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="CATALOGO_EMPRESA" EntitySet="CATALOGO_EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONFIGURACION_EMPRESA" Association="Self.FK_CONFIGURACION_EMPRESA">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="CONFIGURACION" EntitySet="CONFIGURACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLEADO_EMPRESA" Association="Self.FK_EMPLEADO_EMPRESA">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLEADO_FAMILIAR_EMPLEADO" Association="Self.FK_EMPLEADO_FAMILIAR_EMPLEADO">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="EMPLEADO_FAMILIAR" EntitySet="EMPLEADO_FAMILIAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLEADO_PERSONA" Association="Self.FK_EMPLEADO_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PARAMETRO_EMPRESA" Association="Self.FK_PARAMETRO_EMPRESA">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="PARAMETRO" EntitySet="PARAMETRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERFIL_EMPRESA" Association="Self.FK_PERFIL_EMPRESA">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="PERFIL" EntitySet="PERFIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERFIL_TAREA_PERFIL" Association="Self.FK_PERFIL_TAREA_PERFIL">
+            <End Role="PERFIL" EntitySet="PERFIL" />
+            <End Role="PERFIL_TAREA" EntitySet="PERFIL_TAREA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERFIL_TAREA_TAREA" Association="Self.FK_PERFIL_TAREA_TAREA">
+            <End Role="TAREA" EntitySet="TAREA" />
+            <End Role="PERFIL_TAREA" EntitySet="PERFIL_TAREA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TAREA_MENU" Association="Self.FK_TAREA_MENU">
+            <End Role="MENU" EntitySet="MENU" />
+            <End Role="TAREA" EntitySet="TAREA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_PERFIL_PERFIL" Association="Self.FK_USUARIO_PERFIL_PERFIL">
+            <End Role="PERFIL" EntitySet="PERFIL" />
+            <End Role="USUARIO_PERFIL" EntitySet="USUARIO_PERFIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_PERFIL_USUARIO" Association="Self.FK_USUARIO_PERFIL_USUARIO">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="USUARIO_PERFIL" EntitySet="USUARIO_PERFIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_PERSONA" Association="Self.FK_USUARIO_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CheckTimeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CATALOGO_CABECERA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Especificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Fc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Uc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Um" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CATALOGO_DETALLE" Relationship="Self.FK_CATALOGO_DETALLE_CATALOGO_CABECERA" FromRole="CATALOGO_CABECERA" ToRole="CATALOGO_DETALLE" />
+          <NavigationProperty Name="CATALOGO_EMPRESA" Relationship="Self.FK_CATALOGO_EMPRESA_CATALOGO_CABECERA" FromRole="CATALOGO_CABECERA" ToRole="CATALOGO_EMPRESA" />
+        </EntityType>
+        <EntityType Name="CATALOGO_DETALLE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_catalogo_cabecera" Type="Int32" Nullable="false" />
+          <Property Name="Especificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_padre" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Fc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Uc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Um" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CATALOGO_CABECERA" Relationship="Self.FK_CATALOGO_DETALLE_CATALOGO_CABECERA" FromRole="CATALOGO_DETALLE" ToRole="CATALOGO_CABECERA" />
+        </EntityType>
+        <EntityType Name="CATALOGO_EMPRESA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_catalogo_cabecera" Type="Int32" Nullable="false" />
+          <Property Name="Id_empresa" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Fc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Uc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Um" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CATALOGO_CABECERA" Relationship="Self.FK_CATALOGO_EMPRESA_CATALOGO_CABECERA" FromRole="CATALOGO_EMPRESA" ToRole="CATALOGO_CABECERA" />
+          <NavigationProperty Name="EMPRESA" Relationship="Self.FK_CATALOGO_EMPRESA_EMPRESA" FromRole="CATALOGO_EMPRESA" ToRole="EMPRESA" />
+        </EntityType>
+        <EntityType Name="CONFIGURACION">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_empresa" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Especificacione" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Valor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Uc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Um" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="EMPRESA" Relationship="Self.FK_CONFIGURACION_EMPRESA" FromRole="CONFIGURACION" ToRole="EMPRESA" />
+        </EntityType>
+        <EntityType Name="EMPLEADO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_empresa" Type="Int32" Nullable="false" />
+          <Property Name="Id_persona" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Uc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Um" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="EMPRESA" Relationship="Self.FK_EMPLEADO_EMPRESA" FromRole="EMPLEADO" ToRole="EMPRESA" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.FK_EMPLEADO_PERSONA" FromRole="EMPLEADO" ToRole="PERSONA" />
+          <NavigationProperty Name="EMPLEADO_FAMILIAR" Relationship="CheckTimeModel.FK_EMPLEADO_FAMILIAR_EMPLEADO" FromRole="EMPLEADO" ToRole="EMPLEADO_FAMILIAR" />
+        </EntityType>
+        <EntityType Name="EMPRESA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Razon_social" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ruc" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono_1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono_2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Representante_legal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cedula_representante_legal" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cargo_representante_legal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_Ciudad" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Fc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Uc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Um" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CATALOGO_EMPRESA" Relationship="Self.FK_CATALOGO_EMPRESA_EMPRESA" FromRole="EMPRESA" ToRole="CATALOGO_EMPRESA" />
+          <NavigationProperty Name="CONFIGURACION" Relationship="Self.FK_CONFIGURACION_EMPRESA" FromRole="EMPRESA" ToRole="CONFIGURACION" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK_EMPLEADO_EMPRESA" FromRole="EMPRESA" ToRole="EMPLEADO" />
+          <NavigationProperty Name="PARAMETRO" Relationship="Self.FK_PARAMETRO_EMPRESA" FromRole="EMPRESA" ToRole="PARAMETRO" />
+          <NavigationProperty Name="PERFIL" Relationship="Self.FK_PERFIL_EMPRESA" FromRole="EMPRESA" ToRole="PERFIL" />
+        </EntityType>
+        <EntityType Name="MENU">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Especificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Fc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Uc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Um" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TAREA" Relationship="Self.FK_TAREA_MENU" FromRole="MENU" ToRole="TAREA" />
+        </EntityType>
+        <EntityType Name="PARAMETRO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_empresa" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Especificacione" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Valor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Uc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Um" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="EMPRESA" Relationship="Self.FK_PARAMETRO_EMPRESA" FromRole="PARAMETRO" ToRole="EMPRESA" />
+        </EntityType>
+        <EntityType Name="PERFIL">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_empresa" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Especificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Fc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Uc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Um" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="EMPRESA" Relationship="Self.FK_PERFIL_EMPRESA" FromRole="PERFIL" ToRole="EMPRESA" />
+          <NavigationProperty Name="PERFIL_TAREA" Relationship="Self.FK_PERFIL_TAREA_PERFIL" FromRole="PERFIL" ToRole="PERFIL_TAREA" />
+          <NavigationProperty Name="USUARIO_PERFIL" Relationship="Self.FK_USUARIO_PERFIL_PERFIL" FromRole="PERFIL" ToRole="USUARIO_PERFIL" />
+        </EntityType>
+        <EntityType Name="PERFIL_TAREA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_tarea" Type="Int32" Nullable="false" />
+          <Property Name="Id_perfil" Type="Int32" Nullable="false" />
+          <Property Name="Fc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Uc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Um" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PERFIL" Relationship="Self.FK_PERFIL_TAREA_PERFIL" FromRole="PERFIL_TAREA" ToRole="PERFIL" />
+          <NavigationProperty Name="TAREA" Relationship="Self.FK_PERFIL_TAREA_TAREA" FromRole="PERFIL_TAREA" ToRole="TAREA" />
+        </EntityType>
+        <EntityType Name="PERSONA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo_documento" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Numero_documento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_nacimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_ciudad" Type="Int32" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Fc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Uc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Um" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK_EMPLEADO_PERSONA" FromRole="PERSONA" ToRole="EMPLEADO" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK_USUARIO_PERSONA" FromRole="PERSONA" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="TAREA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Especificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_menu" Type="Int32" Nullable="false" />
+          <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Fc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Uc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Um" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MENU" Relationship="Self.FK_TAREA_MENU" FromRole="TAREA" ToRole="MENU" />
+          <NavigationProperty Name="PERFIL_TAREA" Relationship="Self.FK_PERFIL_TAREA_TAREA" FromRole="TAREA" ToRole="PERFIL_TAREA" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_persona" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Intentos_login_error" Type="Int32" Nullable="false" />
+          <Property Name="Fc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Uc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Um" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.FK_USUARIO_PERSONA" FromRole="USUARIO" ToRole="PERSONA" />
+          <NavigationProperty Name="USUARIO_PERFIL" Relationship="Self.FK_USUARIO_PERFIL_USUARIO" FromRole="USUARIO" ToRole="USUARIO_PERFIL" />
+        </EntityType>
+        <EntityType Name="USUARIO_PERFIL">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="Id_perfil" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Fc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Uc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Um" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PERFIL" Relationship="Self.FK_USUARIO_PERFIL_PERFIL" FromRole="USUARIO_PERFIL" ToRole="PERFIL" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK_USUARIO_PERFIL_USUARIO" FromRole="USUARIO_PERFIL" ToRole="USUARIO" />
+        </EntityType>
+        <Association Name="FK_CATALOGO_DETALLE_CATALOGO_CABECERA">
+          <End Role="CATALOGO_CABECERA" Type="Self.CATALOGO_CABECERA" Multiplicity="1" />
+          <End Role="CATALOGO_DETALLE" Type="Self.CATALOGO_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATALOGO_CABECERA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CATALOGO_DETALLE">
+              <PropertyRef Name="Id_catalogo_cabecera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOGO_EMPRESA_CATALOGO_CABECERA">
+          <End Role="CATALOGO_CABECERA" Type="Self.CATALOGO_CABECERA" Multiplicity="1" />
+          <End Role="CATALOGO_EMPRESA" Type="Self.CATALOGO_EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATALOGO_CABECERA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CATALOGO_EMPRESA">
+              <PropertyRef Name="Id_catalogo_cabecera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOGO_EMPRESA_EMPRESA">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+          <End Role="CATALOGO_EMPRESA" Type="Self.CATALOGO_EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CATALOGO_EMPRESA">
+              <PropertyRef Name="Id_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONFIGURACION_EMPRESA">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+          <End Role="CONFIGURACION" Type="Self.CONFIGURACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CONFIGURACION">
+              <PropertyRef Name="Id_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLEADO_EMPRESA">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="Id_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLEADO_PERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="Id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PARAMETRO_EMPRESA">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+          <End Role="PARAMETRO" Type="Self.PARAMETRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PARAMETRO">
+              <PropertyRef Name="Id_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERFIL_EMPRESA">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+          <End Role="PERFIL" Type="Self.PERFIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PERFIL">
+              <PropertyRef Name="Id_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TAREA_MENU">
+          <End Role="MENU" Type="Self.MENU" Multiplicity="1" />
+          <End Role="TAREA" Type="Self.TAREA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MENU">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TAREA">
+              <PropertyRef Name="Id_menu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERFIL_TAREA_PERFIL">
+          <End Role="PERFIL" Type="Self.PERFIL" Multiplicity="1" />
+          <End Role="PERFIL_TAREA" Type="Self.PERFIL_TAREA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERFIL">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PERFIL_TAREA">
+              <PropertyRef Name="Id_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_PERFIL_PERFIL">
+          <End Role="PERFIL" Type="Self.PERFIL" Multiplicity="1" />
+          <End Role="USUARIO_PERFIL" Type="Self.USUARIO_PERFIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERFIL">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="USUARIO_PERFIL">
+              <PropertyRef Name="Id_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERFIL_TAREA_TAREA">
+          <End Role="TAREA" Type="Self.TAREA" Multiplicity="1" />
+          <End Role="PERFIL_TAREA" Type="Self.PERFIL_TAREA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAREA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PERFIL_TAREA">
+              <PropertyRef Name="Id_tarea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_PERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="Id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_PERFIL_USUARIO">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="USUARIO_PERFIL" Type="Self.USUARIO_PERFIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="USUARIO_PERFIL">
+              <PropertyRef Name="Id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CheckTimeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CATALOGO_CABECERA" EntityType="Self.CATALOGO_CABECERA" />
+          <EntitySet Name="CATALOGO_DETALLE" EntityType="Self.CATALOGO_DETALLE" />
+          <EntitySet Name="CATALOGO_EMPRESA" EntityType="Self.CATALOGO_EMPRESA" />
+          <EntitySet Name="CONFIGURACION" EntityType="Self.CONFIGURACION" />
+          <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" />
+          <EntitySet Name="EMPRESA" EntityType="Self.EMPRESA" />
+          <EntitySet Name="MENU" EntityType="Self.MENU" />
+          <EntitySet Name="PARAMETRO" EntityType="Self.PARAMETRO" />
+          <EntitySet Name="PERFIL" EntityType="Self.PERFIL" />
+          <EntitySet Name="PERFIL_TAREA" EntityType="Self.PERFIL_TAREA" />
+          <EntitySet Name="PERSONA" EntityType="Self.PERSONA" />
+          <EntitySet Name="TAREA" EntityType="Self.TAREA" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <EntitySet Name="USUARIO_PERFIL" EntityType="Self.USUARIO_PERFIL" />
+          <AssociationSet Name="FK_CATALOGO_DETALLE_CATALOGO_CABECERA" Association="Self.FK_CATALOGO_DETALLE_CATALOGO_CABECERA">
+            <End Role="CATALOGO_CABECERA" EntitySet="CATALOGO_CABECERA" />
+            <End Role="CATALOGO_DETALLE" EntitySet="CATALOGO_DETALLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOGO_EMPRESA_CATALOGO_CABECERA" Association="Self.FK_CATALOGO_EMPRESA_CATALOGO_CABECERA">
+            <End Role="CATALOGO_CABECERA" EntitySet="CATALOGO_CABECERA" />
+            <End Role="CATALOGO_EMPRESA" EntitySet="CATALOGO_EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOGO_EMPRESA_EMPRESA" Association="Self.FK_CATALOGO_EMPRESA_EMPRESA">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="CATALOGO_EMPRESA" EntitySet="CATALOGO_EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONFIGURACION_EMPRESA" Association="Self.FK_CONFIGURACION_EMPRESA">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="CONFIGURACION" EntitySet="CONFIGURACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLEADO_EMPRESA" Association="Self.FK_EMPLEADO_EMPRESA">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLEADO_PERSONA" Association="Self.FK_EMPLEADO_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PARAMETRO_EMPRESA" Association="Self.FK_PARAMETRO_EMPRESA">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="PARAMETRO" EntitySet="PARAMETRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERFIL_EMPRESA" Association="Self.FK_PERFIL_EMPRESA">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="PERFIL" EntitySet="PERFIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TAREA_MENU" Association="Self.FK_TAREA_MENU">
+            <End Role="MENU" EntitySet="MENU" />
+            <End Role="TAREA" EntitySet="TAREA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERFIL_TAREA_PERFIL" Association="Self.FK_PERFIL_TAREA_PERFIL">
+            <End Role="PERFIL" EntitySet="PERFIL" />
+            <End Role="PERFIL_TAREA" EntitySet="PERFIL_TAREA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_PERFIL_PERFIL" Association="Self.FK_USUARIO_PERFIL_PERFIL">
+            <End Role="PERFIL" EntitySet="PERFIL" />
+            <End Role="USUARIO_PERFIL" EntitySet="USUARIO_PERFIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERFIL_TAREA_TAREA" Association="Self.FK_PERFIL_TAREA_TAREA">
+            <End Role="TAREA" EntitySet="TAREA" />
+            <End Role="PERFIL_TAREA" EntitySet="PERFIL_TAREA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_PERSONA" Association="Self.FK_USUARIO_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_PERFIL_USUARIO" Association="Self.FK_USUARIO_PERFIL_USUARIO">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="USUARIO_PERFIL" EntitySet="USUARIO_PERFIL" />
+          </AssociationSet>
+          <EntitySet Name="EMPLEADO_FAMILIAR" EntityType="CheckTimeModel.EMPLEADO_FAMILIAR" />
+          <AssociationSet Name="FK_EMPLEADO_FAMILIAR_EMPLEADO" Association="CheckTimeModel.FK_EMPLEADO_FAMILIAR_EMPLEADO">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="EMPLEADO_FAMILIAR" EntitySet="EMPLEADO_FAMILIAR" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="EMPLEADO_FAMILIAR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_empleado" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Parentesco" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Fc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Uc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Um" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EMPLEADO" Relationship="CheckTimeModel.FK_EMPLEADO_FAMILIAR_EMPLEADO" FromRole="EMPLEADO_FAMILIAR" ToRole="EMPLEADO" />
+        </EntityType>
+        <Association Name="FK_EMPLEADO_FAMILIAR_EMPLEADO">
+          <End Type="CheckTimeModel.EMPLEADO" Role="EMPLEADO" Multiplicity="1" />
+          <End Type="CheckTimeModel.EMPLEADO_FAMILIAR" Role="EMPLEADO_FAMILIAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EMPLEADO_FAMILIAR">
+              <PropertyRef Name="Id_empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CheckTimeModelStoreContainer" CdmEntityContainer="CheckTimeEntities">
+          <EntitySetMapping Name="CATALOGO_CABECERA">
+            <EntityTypeMapping TypeName="CheckTimeModel.CATALOGO_CABECERA">
+              <MappingFragment StoreEntitySet="CATALOGO_CABECERA">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Especificacion" ColumnName="Especificacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fc" ColumnName="Fc" />
+                <ScalarProperty Name="Uc" ColumnName="Uc" />
+                <ScalarProperty Name="Fm" ColumnName="Fm" />
+                <ScalarProperty Name="Um" ColumnName="Um" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CATALOGO_DETALLE">
+            <EntityTypeMapping TypeName="CheckTimeModel.CATALOGO_DETALLE">
+              <MappingFragment StoreEntitySet="CATALOGO_DETALLE">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_catalogo_cabecera" ColumnName="Id_catalogo_cabecera" />
+                <ScalarProperty Name="Especificacion" ColumnName="Especificacion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id_padre" ColumnName="Id_padre" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fc" ColumnName="Fc" />
+                <ScalarProperty Name="Uc" ColumnName="Uc" />
+                <ScalarProperty Name="Fm" ColumnName="Fm" />
+                <ScalarProperty Name="Um" ColumnName="Um" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CATALOGO_EMPRESA">
+            <EntityTypeMapping TypeName="CheckTimeModel.CATALOGO_EMPRESA">
+              <MappingFragment StoreEntitySet="CATALOGO_EMPRESA">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_catalogo_cabecera" ColumnName="Id_catalogo_cabecera" />
+                <ScalarProperty Name="Id_empresa" ColumnName="Id_empresa" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fc" ColumnName="Fc" />
+                <ScalarProperty Name="Uc" ColumnName="Uc" />
+                <ScalarProperty Name="Fm" ColumnName="Fm" />
+                <ScalarProperty Name="Um" ColumnName="Um" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONFIGURACION">
+            <EntityTypeMapping TypeName="CheckTimeModel.CONFIGURACION">
+              <MappingFragment StoreEntitySet="CONFIGURACION">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_empresa" ColumnName="Id_empresa" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Especificacione" ColumnName="Especificacione" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Fc" ColumnName="Fc" />
+                <ScalarProperty Name="Uc" ColumnName="Uc" />
+                <ScalarProperty Name="Fm" ColumnName="Fm" />
+                <ScalarProperty Name="Um" ColumnName="Um" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLEADO">
+            <EntityTypeMapping TypeName="CheckTimeModel.EMPLEADO">
+              <MappingFragment StoreEntitySet="EMPLEADO">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_empresa" ColumnName="Id_empresa" />
+                <ScalarProperty Name="Id_persona" ColumnName="Id_persona" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Fc" ColumnName="Fc" />
+                <ScalarProperty Name="Uc" ColumnName="Uc" />
+                <ScalarProperty Name="Fm" ColumnName="Fm" />
+                <ScalarProperty Name="Um" ColumnName="Um" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPRESA">
+            <EntityTypeMapping TypeName="CheckTimeModel.EMPRESA">
+              <MappingFragment StoreEntitySet="EMPRESA">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razon_social" ColumnName="Razon_social" />
+                <ScalarProperty Name="Ruc" ColumnName="Ruc" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono_1" ColumnName="Telefono_1" />
+                <ScalarProperty Name="Telefono_2" ColumnName="Telefono_2" />
+                <ScalarProperty Name="Representante_legal" ColumnName="Representante_legal" />
+                <ScalarProperty Name="Cedula_representante_legal" ColumnName="Cedula_representante_legal" />
+                <ScalarProperty Name="Cargo_representante_legal" ColumnName="Cargo_representante_legal" />
+                <ScalarProperty Name="Id_Ciudad" ColumnName="Id_Ciudad" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fc" ColumnName="Fc" />
+                <ScalarProperty Name="Uc" ColumnName="Uc" />
+                <ScalarProperty Name="Fm" ColumnName="Fm" />
+                <ScalarProperty Name="Um" ColumnName="Um" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MENU">
+            <EntityTypeMapping TypeName="CheckTimeModel.MENU">
+              <MappingFragment StoreEntitySet="MENU">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Especificacion" ColumnName="Especificacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fc" ColumnName="Fc" />
+                <ScalarProperty Name="Uc" ColumnName="Uc" />
+                <ScalarProperty Name="Fm" ColumnName="Fm" />
+                <ScalarProperty Name="Um" ColumnName="Um" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PARAMETRO">
+            <EntityTypeMapping TypeName="CheckTimeModel.PARAMETRO">
+              <MappingFragment StoreEntitySet="PARAMETRO">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_empresa" ColumnName="Id_empresa" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Especificacione" ColumnName="Especificacione" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Fc" ColumnName="Fc" />
+                <ScalarProperty Name="Uc" ColumnName="Uc" />
+                <ScalarProperty Name="Fm" ColumnName="Fm" />
+                <ScalarProperty Name="Um" ColumnName="Um" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERFIL">
+            <EntityTypeMapping TypeName="CheckTimeModel.PERFIL">
+              <MappingFragment StoreEntitySet="PERFIL">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_empresa" ColumnName="Id_empresa" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Especificacion" ColumnName="Especificacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fc" ColumnName="Fc" />
+                <ScalarProperty Name="Uc" ColumnName="Uc" />
+                <ScalarProperty Name="Fm" ColumnName="Fm" />
+                <ScalarProperty Name="Um" ColumnName="Um" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERFIL_TAREA">
+            <EntityTypeMapping TypeName="CheckTimeModel.PERFIL_TAREA">
+              <MappingFragment StoreEntitySet="PERFIL_TAREA">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_tarea" ColumnName="Id_tarea" />
+                <ScalarProperty Name="Id_perfil" ColumnName="Id_perfil" />
+                <ScalarProperty Name="Fc" ColumnName="Fc" />
+                <ScalarProperty Name="Uc" ColumnName="Uc" />
+                <ScalarProperty Name="Fm" ColumnName="Fm" />
+                <ScalarProperty Name="Um" ColumnName="Um" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSONA">
+            <EntityTypeMapping TypeName="CheckTimeModel.PERSONA">
+              <MappingFragment StoreEntitySet="PERSONA">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre_1" ColumnName="Nombre_1" />
+                <ScalarProperty Name="Nombre_2" ColumnName="Nombre_2" />
+                <ScalarProperty Name="Apellido_1" ColumnName="Apellido_1" />
+                <ScalarProperty Name="Apellido_2" ColumnName="Apellido_2" />
+                <ScalarProperty Name="Tipo_documento" ColumnName="Tipo_documento" />
+                <ScalarProperty Name="Numero_documento" ColumnName="Numero_documento" />
+                <ScalarProperty Name="Fecha_nacimiento" ColumnName="Fecha_nacimiento" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id_ciudad" ColumnName="Id_ciudad" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fc" ColumnName="Fc" />
+                <ScalarProperty Name="Uc" ColumnName="Uc" />
+                <ScalarProperty Name="Fm" ColumnName="Fm" />
+                <ScalarProperty Name="Um" ColumnName="Um" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAREA">
+            <EntityTypeMapping TypeName="CheckTimeModel.TAREA">
+              <MappingFragment StoreEntitySet="TAREA">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Especificacion" ColumnName="Especificacion" />
+                <ScalarProperty Name="Id_menu" ColumnName="Id_menu" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fc" ColumnName="Fc" />
+                <ScalarProperty Name="Uc" ColumnName="Uc" />
+                <ScalarProperty Name="Fm" ColumnName="Fm" />
+                <ScalarProperty Name="Um" ColumnName="Um" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="CheckTimeModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Id_persona" ColumnName="Id_persona" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Intentos_login_error" ColumnName="Intentos_login_error" />
+                <ScalarProperty Name="Fc" ColumnName="Fc" />
+                <ScalarProperty Name="Uc" ColumnName="Uc" />
+                <ScalarProperty Name="Fm" ColumnName="Fm" />
+                <ScalarProperty Name="Um" ColumnName="Um" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO_PERFIL">
+            <EntityTypeMapping TypeName="CheckTimeModel.USUARIO_PERFIL">
+              <MappingFragment StoreEntitySet="USUARIO_PERFIL">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_usuario" ColumnName="Id_usuario" />
+                <ScalarProperty Name="Id_perfil" ColumnName="Id_perfil" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fc" ColumnName="Fc" />
+                <ScalarProperty Name="Uc" ColumnName="Uc" />
+                <ScalarProperty Name="Fm" ColumnName="Fm" />
+                <ScalarProperty Name="Um" ColumnName="Um" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLEADO_FAMILIAR">
+            <EntityTypeMapping TypeName="CheckTimeModel.EMPLEADO_FAMILIAR">
+              <MappingFragment StoreEntitySet="EMPLEADO_FAMILIAR">
+                <ScalarProperty Name="Um" ColumnName="Um" />
+                <ScalarProperty Name="Fm" ColumnName="Fm" />
+                <ScalarProperty Name="Uc" ColumnName="Uc" />
+                <ScalarProperty Name="Fc" ColumnName="Fc" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Parentesco" ColumnName="Parentesco" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id_empleado" ColumnName="Id_empleado" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
