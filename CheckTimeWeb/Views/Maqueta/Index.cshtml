@@ -1,0 +1,148 @@
+﻿<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Grilla Administracion">
+<meta name="author" content="CheckTime">
+
+<title>Administrador de Personal</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- DataTables CSS -->
+<link href="~/Content/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+<!-- DataTables Responsive CSS -->
+<link href="~/Content/CSS/DataTable.css" rel="stylesheet">
+<!-- Botones Responsive CSS -->
+<link href="~/Content/CSS/Botones.css" rel="stylesheet">
+<!-- DataTables CSS -->
+<link href="~/Content/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+<!--TableSorter JQuery-->
+<script type="text/javascript" src="~/Content/jquery/jquery.js"></script>
+<script type="text/javascript" src="~/Content/jquery/jquery.tablesorter.js"></script>
+<script type="text/javascript">
+    $(function ($) {
+        //Cuando la página se cargue convertimos la tabla con id "myTable" en una tabla ordenable
+        $("#Administrador").tablesorter();
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#styling").tableSorter({
+            sortColumn: 'header1',			// número entero del índice o nombre de la columna en minúsculas
+            sortClassAsc: 'headerSortUp',		// clase css de la cabecera de la columna cuando aplicamos un orden ascendente
+            sortClassDesc: 'headerSortDown',	// clase css de la cabecera de la columna cuando aplicamos un orden descendente
+            headerClass: 'header'			// clase genérica de las cabeceras (th's)  class="jarviswidget jarviswidget-color-blueLight"
+        });
+    });
+</script>
+
+<link href="~/AngularJS/lib/jquery-chosen/chosen.min.css" rel="stylesheet" />
+<link href="~/AngularJS/lib/jquery-chosen/chosen-sprite.png" rel="image_src" />
+
+<div ng-app="app_administrador" class="table-responsive-sm" id="panel-listado-general-fade">
+    <div ng-controller="AdministradorIndex">
+        <header id="main-header" class="title">
+            <h1 id="logo-header" class="encabezado">
+                <span class="widget-icon">ADMINISTRADOR DE CONTENIDOS</span>
+            </h1> <!-- / #logo-header -->
+        </header>
+    </div>
+    <div class="datagrid">
+        <table id="Administrador" class="tablesorter">
+            <thead>
+                <tr>
+                    <th>header1</th>
+                    <th>header2</th>
+                    <th>header3</th>
+                    <th>header4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="alt"><td>data</td><td>data</td><td>data</td><td>data</td></tr>
+                <tr><td>data</td><td>data</td><td>data</td><td>data</td></tr>
+                <tr class="alt"><td>data</td><td>data</td><td>data</td><td>data</td></tr>
+                <tr><td>data</td><td>data</td><td>data</td><td>data</td></tr>
+                <tr class="alt"><td>data</td><td>data</td><td>data</td><td>data</td></tr>
+                <tr>
+                    <td>peter</td>
+                    <td>28</td>
+                    <td>$9.99</td>
+                    <td>jul 6, 2006 8:14 am</td>
+                </tr>
+                <tr class="alt">
+                    <td>john</td>
+                    <td>33</td>
+                    <td>$19.99</td>
+                    <td>dec 10, 2002 5:14 am</td>
+                </tr>
+                <tr>
+                    <td>clark</td>
+                    <td>18</td>
+                    <td>$15.89</td>
+                    <td>jan 12, 2003 11:14 am</td>
+                </tr>
+                <tr class="alt">
+                    <td>bruce</td>
+                    <td>45</td>
+                    <td>$153.19</td>
+                    <td>jan 18, 2001 9:12 am</td>
+                </tr>
+                <tr>
+                    <td>bruce</td>
+                    <td>22</td>
+                    <td>$13.19</td>
+                    <td>jan 18, 2007 9:12 am</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="datagrid">
+        <table>
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <div id="paging">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <button type="button" class="btn degradado">NUEVO</button>
+                                                            <button type="button" class="btn degradado">SALIR</button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <ul>
+                                                <li>
+                                                    <button type="button" class="btnpag degradado">Primera</button>
+                                                </li>
+                                                <li><button type="button" class="btnpag degradado"><<</button></a></li>
+                                                <li><button type="button" class="btnpag degradado">1</button></li>
+                                                <li><button type="button" class="btnpag degradado">>></button></li>
+                                                <li><button type="button" class="btnpag degradado">Ultima</button></li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        // call the tablesorter plugin
+        $("table").tablesorter();
+    });
+</script>
