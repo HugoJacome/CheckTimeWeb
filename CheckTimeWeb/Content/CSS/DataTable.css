@@ -27,7 +27,7 @@
         background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8C8C8C), color-stop(1, #7D7D7D) );
         background: -moz-linear-gradient( center top, #8C8C8C 5%, #7D7D7D 100% );
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8C8C8C', endColorstr='#7D7D7D');
-        background-color: #8C8C8C;
+        background-color: #010202;
         color: #FFFFFF;
         font-size: 15px;
         font-weight: bold;
@@ -44,10 +44,8 @@
         font-size: 12px;
         font-weight: normal;
     }
-
     .datagrid table tbody .alt td {
-        background: #EBEBEB;
-        color: #7D7D7D;
+        color: white;
     }
 
     .datagrid table tbody td:first-child {
@@ -60,7 +58,7 @@
 
     .datagrid table tfoot td div {
         border-top: 1px solid #8C8C8C;
-        background: #EBEBEB;
+        background: none;
     }
 
     .datagrid table tfoot td {
@@ -114,12 +112,13 @@ div.dhtmlx_window_active, div.dhx_modal_cover_dv {
 /* tables */
 table.tablesorter {
 	font-family:arial;
-	margin:0px 0pt 0px;
+	margin:10px 0pt 15px;
 	font-size: 8pt;
 	width: 100%;
 	text-align: left;
 }
 table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	border: 1px solid #FFF;
 	font-size: 8pt;
 	padding: 4px;
 }
@@ -130,12 +129,20 @@ table.tablesorter thead tr .header {
 	cursor: pointer;
 }
 table.tablesorter tbody td {
+	color: white;
 	padding: 4px;
+	background-color: #FFF;
 	vertical-align: top;
 }
+    table.tablesorter tbody tr.odd td {
+        background: #4B4D4B;
+    }
 table.tablesorter thead tr .headerSortUp {
 	background-image: url(asc.gif);
 }
 table.tablesorter thead tr .headerSortDown {
 	background-image: url(desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+    background-color: #4b4d4b;
 }
