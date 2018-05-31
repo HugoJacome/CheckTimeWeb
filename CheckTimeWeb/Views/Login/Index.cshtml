@@ -1,48 +1,48 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
 @{
     ViewBag.Title = "CheckTime";
 }
 
-<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>checkTime</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/Login.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <div class="login-box">
+        <img src="~/Content/Imagenes/avatar.png" class="avatar">
+        <form>
+            <p>NOMBRE USUARIO</p>
+            <div class="inputWithIcon">
+                <input type="text" name="username" placeholder="Ingrese su Usuario">
+                <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+            <p>CONTRASEÑA</p>
+            <div class="inputWithIcon">
+                <input type="password" name="password" placeholder="Ingrese su Contraseña">
+                <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
             </div>
-        </div>
+            <input type="submit" name="submit" value="INGRESAR">
+            <div style="text-align:right;"><a href="#">Olvidó su Contraseña?</a></div>
+            <div class="connect">
+                <p>Siguenos en:</p>
+                <a class="facebook" href="#"></a>
+                <a class="twitter" href="#"></a>
+            </div>
+        </form>
     </div>
-    <div class="container body-content">
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+    <div class="login-box2">
+        <a title="Los Tejos" href="www.google.com"><img src="~/Content/Imagenes/Empresa.png" alt="Los Tejos" class="imagenesLink" /></a>
+        <hr style="background-color: black;height: 1px;margin-left: 65%;width: 50%;border: 0;">
+        <a title="Los Tejos" href="www.google.com"><img src="~/Content/Imagenes/Facebook2.png" alt="Los Tejos" class="imagenesLink" /></a>
+        <hr style="background-color: black;height: 1px;margin-left: 65%;width: 50%;border: 0;">
+        <a title="Los Tejos" href="www.google.com"><img src="~/Content/Imagenes/Twitter2.png" alt="Los Tejos" class="imagenesLink" /></a>
+        <hr style="background-color: black;height: 1px;margin-left: 65%;width: 50%;border: 0;">
+        <a title="Los Tejos" href="www.google.com"><img src="~/Content/Imagenes/Productos.png" alt="Los Tejos" class="imagenesLink" /></a>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>

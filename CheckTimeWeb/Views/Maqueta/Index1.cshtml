@@ -1,0 +1,85 @@
+﻿<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Grilla Administracion">
+<meta name="author" content="CheckTime">
+
+<title>Administrador de Personal</title>
+
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="~/Content/CSS/datatables.min.css" />
+<!-- Jquery 3.3.1 -->
+<script type="text/javascript" src="~/Content/JS/jquery-3.3.1.min.js"></script>
+<!-- DataTables JS -->
+<script type="text/javascript" src="~/Content/JS/datatables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#table').DataTable();
+    });
+</script>
+
+<!-- Botones Responsive CSS -->
+<link href="~/Content/CSS/Botones.css" rel="stylesheet">
+
+
+<div ng-app="app_administrador" id="panel-listado-general-fade">
+    <div ng-controller="AdministradorIndex">
+        <header id="main-header" class="title">
+            <h1 id="logo-header" class="encabezado">
+                <span class="widget-icon">ADMINISTRADOR DE CONTENIDOS</span>
+            </h1> <!-- / #logo-header -->
+        </header>
+    </div>
+    <div>
+        <table id="table" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>header1</th>
+                    <th>header2</th>
+                    <th>header3</th>
+                    <th>header4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>data</td><td>data</td><td>data</td><td>data</td></tr>
+                <tr><td>data</td><td>data</td><td>data</td><td>data</td></tr>
+                <tr><td>data</td><td>data</td><td>data</td><td>data</td></tr>
+                <tr><td>data</td><td>data</td><td>data</td><td>data</td></tr>
+                <tr><td>data</td><td>data</td><td>data</td><td>data</td></tr>
+                <tr>
+                    <td>peter</td>
+                    <td>28</td>
+                    <td>$9.99</td>
+                    <td>jul 6, 2006 8:14 am</td>
+                </tr>
+                <tr>
+                    <td>john</td>
+                    <td>33</td>
+                    <td>$19.99</td>
+                    <td>dec 10, 2002 5:14 am</td>
+                </tr>
+                <tr>
+                    <td>clark</td>
+                    <td>18</td>
+                    <td>$15.89</td>
+                    <td>jan 12, 2003 11:14 am</td>
+                </tr>
+                <tr>
+                    <td>bruce</td>
+                    <td>45</td>
+                    <td>$153.19</td>
+                    <td>jan 18, 2001 9:12 am</td>
+                </tr>
+                <tr>
+                    <td>bruce</td>
+                    <td>22</td>
+                    <td>$13.19</td>
+                    <td>jan 18, 2007 9:12 am</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+

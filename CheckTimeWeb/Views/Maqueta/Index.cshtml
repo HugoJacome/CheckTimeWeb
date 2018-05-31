@@ -1,4 +1,7 @@
-﻿<meta charset="utf-8">
+﻿@{
+    Layout = "~/Views/Shared/_LayoutCT.cshtml";
+}
+<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Grilla Administracion">
@@ -35,6 +38,36 @@
         });
     });
 </script>
+<script language="javascript">
+    function doSearch() {
+        var tableReg = document.getElementById('Administrador');
+        var searchText = document.getElementById('searchTerm').value.toLowerCase();
+        var cellsOfRow = "";
+        var found = false;
+        var compareWith = "";
+
+        // Recorremos todas las filas con contenido de la tabla
+        for (var i = 1; i < tableReg.rows.length; i++) {
+            cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+            found = false;
+            // Recorremos todas las celdas
+            for (var j = 0; j < cellsOfRow.length && !found; j++) {
+                compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+                // Buscamos el texto en el contenido de la celda
+                if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1)) {
+                    found = true;
+                }
+            }
+            if (found) {
+                tableReg.rows[i].style.display = '';
+            } else {
+                // si no ha encontrado ninguna coincidencia, esconde la
+                // fila de la tabla
+                tableReg.rows[i].style.display = 'none';
+            }
+        }
+    }
+</script>
 
 <link href="~/AngularJS/lib/jquery-chosen/chosen.min.css" rel="stylesheet" />
 <link href="~/AngularJS/lib/jquery-chosen/chosen-sprite.png" rel="image_src" />
@@ -47,8 +80,11 @@
             </h1> <!-- / #logo-header -->
         </header>
     </div>
+    <form id="buscador" class="buscador">
+        <label>Buscar por:  </label><input id="searchTerm" type="text" onkeyup="doSearch()" />
+    </form>
     <div class="datagrid">
-        <table id="Administrador" cellspacing="1" class="tablesorter">
+        <table id="Administrador" cellspacing="1">
             <thead>
                 <tr>
                     <th>header1</th>
@@ -58,9 +94,41 @@
                 </tr>
             </thead>
             <tbody>
+                <tr><td>data</td><td>data</td><td>data</td><td>data</td></tr>
                 <tr class="alt"><td>data</td><td>data</td><td>data</td><td>data</td></tr>
                 <tr><td>data</td><td>data</td><td>data</td><td>data</td></tr>
                 <tr class="alt"><td>data</td><td>data</td><td>data</td><td>data</td></tr>
+                <tr><td>data</td><td>data</td><td>data</td><td>data</td></tr>
+                <tr class="alt">
+                    <td>peter</td>
+                    <td>28</td>
+                    <td>$9.99</td>
+                    <td>jul 6, 2006 8:14 am</td>
+                </tr>
+                <tr>
+                    <td>john</td>
+                    <td>33</td>
+                    <td>$19.99</td>
+                    <td>dec 10, 2002 5:14 am</td>
+                </tr>
+                <tr class="alt">
+                    <td>clark</td>
+                    <td>18</td>
+                    <td>$15.89</td>
+                    <td>jan 12, 2003 11:14 am</td>
+                </tr>
+                <tr>
+                    <td>bruce</td>
+                    <td>45</td>
+                    <td>$153.19</td>
+                    <td>jan 18, 2001 9:12 am</td>
+                </tr>
+                <tr class="alt">
+                    <td>bruce</td>
+                    <td>22</td>
+                    <td>$13.19</td>
+                    <td>jan 18, 2007 9:12 am</td>
+                </tr>
                 <tr><td>data</td><td>data</td><td>data</td><td>data</td></tr>
                 <tr class="alt"><td>data</td><td>data</td><td>data</td><td>data</td></tr>
                 <tr>
@@ -81,22 +149,10 @@
                     <td>$15.89</td>
                     <td>jan 12, 2003 11:14 am</td>
                 </tr>
-                <tr class="alt">
-                    <td>bruce</td>
-                    <td>45</td>
-                    <td>$153.19</td>
-                    <td>jan 18, 2001 9:12 am</td>
-                </tr>
-                <tr>
-                    <td>bruce</td>
-                    <td>22</td>
-                    <td>$13.19</td>
-                    <td>jan 18, 2007 9:12 am</td>
-                </tr>
             </tbody>
         </table>
     </div>
-    <div class="datagrid">
+    <div class="datagrid1">
         <table>
             <tfoot>
                 <tr>
