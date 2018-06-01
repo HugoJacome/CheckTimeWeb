@@ -261,6 +261,7 @@
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
     <Content Include="Content\CSS\Botones.css" />
     <Content Include="Content\CSS\DataTable.css" />
+    <Content Include="Content\CSS\Home.css" />
     <Content Include="Content\datatables-plugins\dataTables.bootstrap.css" />
     <Content Include="Content\datatables-plugins\dataTables.bootstrap.js" />
     <Content Include="Content\datatables-plugins\dataTables.bootstrap.min.js" />

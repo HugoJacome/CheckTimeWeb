@@ -1,102 +1,4 @@
-﻿<style>
-    #Cabecera {
-        background: linear-gradient(to right, #010202 -10%, #4b4d4b 40%, #4b4d4b 60%, #010202 110%);
-        left: 0px;
-        right: 0px;
-    }
-
-        #Cabecera:hover {
-            background-image: linear-gradient(to left, #010202 -10%, #010202 40%, #010202 60%, #010202 110%);
-        }
-
-    .button-bar {
-        background-color: red;
-    }
-
-    #cbp-spmenu-s1 {
-        border: 2px solid #dbbd66;
-        padding: 0,0,0,0;
-        border-radius: 15px;
-        height: 505px;
-        width: 241px;
-    }
-
-    .row {
-        clear: both;
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
-    }
-
-    .cell {
-        float: left;
-        min-height: 100px;
-        width: 24%;
-        border: 0px solid black;
-        text-align: center;
-        min-width: 118px;
-    }
-
-    hr {
-        width: 70%;
-        border: 1px solid #dbbd66;
-    }
-
-
-    .row {
-        position: relative;
-        display: inline-block;
-    }
-    /*Para desplegar los sun menu */
-    .dropbtn {
-        background-color: #f5f5f5;
-        color: white;
-        padding: 0px 0px 0px 0px;
-        font-size: 16px;
-        border: none;
-        height: 85px;
-        width: 105px;
-    }
-
-    .dropdown {
-        position: relative;
-        display: inline-block;
-        height: 85px;
-        width: 105px;
-        margin-top: 0px;
-        top: 2px;
-    }
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f1f1f1; /*se cabia el color del conteni*/
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-            .dropdown-content a:hover {
-                background-color: #ddd
-            }
-
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-    .dropdown:hover .dropbtn {
-        background-color: #3e8e41;
-    }
-</style>
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8" />
@@ -111,136 +13,23 @@
     <link href="~/Content/CSS/LayoutComponent.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/CSS/LayoutDefault.css" rel="stylesheet" />
     <script src="~/Content/JS/modernizr.custom.js"></script>
+    <link href="~/Content/CSS/Home.css" rel="stylesheet" type="text/css" />
 </head>
-<body class="cbp-spmenu-push" background="~/Content/Imagenes/Layout/Fondo-02.png">
-    <div class="clearfix" id="Cabecera">
-        <div>
-            <img src="~/Content/Imagenes/Layout/Logo_Empresarial.png" alt="Smiley face" height="70" width="200" />
+<body>
+    <div>
+        <div class="clearfix" id="Cabecera">
+            <div>
+                <img src="~/Content/Imagenes/Layout/Logo_Empresarial.png" alt="Smiley face" height="70" width="200" style="margin-top:10px; margin-left:60px" />
 
+            </div>
+            @*<button id="showLeftPush">Menu</button>*@
         </div>
-        <button id="showLeftPush">Menu</button>
-    </div>
-
-    <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-
-        @*<a href="#">Celery seakale</a>
-            <a href="#">Dulse daikon</a>
-            <a href="#">Zucchini garlic</a>
-            <a href="#">Catsear azuki bean</a>
-            <a href="#">Dandelion bunya</a>
-            <a href="#">Rutabaga</a>*@
-        <div class="row" id="fila1">
-
-
-            <div class="cell" id="Id11">
-
-                <div class="dropdown">
-                    <button class="dropbtn">
-                        <img src="~/Content/Imagenes/Layout/Buscar.png" height="85" width="116" />
-                    </button>
-
-                    <div class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                    </div>
-                </div>
-                <hr />
-
-
-
-            </div>
-            <div class="cell" id="Id12">
-                <div class="dropdown">
-                    <button class="dropbtn">
-                        <img src="~/Content/Imagenes/Layout/Empleado.png" height="85" width="116" />
-                    </button>
-
-                    <div class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                    </div>
-                </div>
-                <hr />
-
-
-            </div>
-
+        <div class="container body-content">
+            @RenderBody()
+            <footer>
+                <p>&copy; @DateTime.Now.Year - CheckTime</p>
+            </footer>
         </div>
-        <div class="row">
-            <div class="cell">
-                <a href="#">
-                    <img src="~/Content/Imagenes/Layout/Empleado.png" height="85" width="116" />
-                </a>
-
-                <hr />
-
-            </div>
-            <div class="cell">
-                <a href="#">
-                    <img src="~/Content/Imagenes/Layout/Empresa.png" height="85" width="116" />
-                </a>
-
-                <hr />
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="cell">
-                <a href="#">
-                    <img src="~/Content/Imagenes/Layout/Estdística.png" height="85" width="116" />
-                </a>
-
-
-                <hr />
-            </div>
-            <div class="cell">
-                <a href="#">
-                    <img src="~~/Content/Imagenes/Layout/Grupos.png" height="85" width="116" />
-                </a>
-
-                <hr />
-            </div>
-        </div>
-        <div class="row">
-            <div class="cell">
-                <a href="#">
-                    <img src="~/Content/Imagenes/Layout/Home.png" height="85" width="116" />
-                </a>
-
-                <hr />
-
-            </div>
-            <div class="cell">
-                <a href="#">
-                    <img src="~/Content/Imagenes/Layout/Jefes.png" height="85" width="116" />
-                </a>
-
-                <hr />
-            </div>
-        </div>
-        <div class="row">
-            <div class="cell">
-                <a href="#">
-                    <img src="~/Content/Imagenes/Layout/Reportes.png" height="90" width="116" />
-                </a>
-
-            </div>
-            <div class="cell">
-                <a href="#">
-                    <img src="~/Content/Imagenes/Layout/sSeguridad.png" height="90" width="116" />
-                </a>
-
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-        </footer>
     </div>
     <script src="~/Content/JS/classie.js"></script>
     <script>

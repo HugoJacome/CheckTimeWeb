@@ -22,12 +22,12 @@
 <!--TableSorter JQuery-->
 <script type="text/javascript" src="~/Content/jquery/jquery.js"></script>
 <script type="text/javascript" src="~/Content/jquery/jquery.tablesorter.js"></script>
-<script type="text/javascript">
+@*<script type="text/javascript">
     $(function ($) {
         //Cuando la página se cargue convertimos la tabla con id "myTable" en una tabla ordenable
         $("#Administrador").tablesorter();
     });
-</script>
+</script>*@
 <script>
     $(document).ready(function () {
         $("#styling").tableSorter({
@@ -181,7 +181,7 @@
                                                 <li><button type="button" class="btnpag degradado"><<</button></a></li>
                                                 <li><button type="button" class="btnpag degradado">1</button></li>
                                                 <li><button type="button" class="btnpag degradado">>></button></li>
-                                                <li><button type="button" class="btnpag degradado">Ultima</button></li>
+                                                <li><button type="button" class="btnpag degradado btnpagder">Ultima</button></li>
                                             </ul>
                                         </td>
                                     </tr>
